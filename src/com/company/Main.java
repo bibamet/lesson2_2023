@@ -35,7 +35,7 @@ public class Main {
         char[][] userShoots = new char[rows][columns];
         char[][] computerShoots = new char[rows][columns];
 
-        printMap(userMap, rows, columns);
+//        printMap(userMap, rows, columns);
 
         System.out.println("Первым будет ходить */барабанная дробь/* ...");
         curPlayer = Players.values()[random.nextInt(0, 2)];
@@ -61,7 +61,11 @@ public class Main {
                 System.out.println("Введите номер ячейки в формате 19, где 1 - номер строки по вертикали, 9 - номер колонки по горизонтали ...");
 
                 while (true) {
-                    val.delete(0, val.length()).append(scanner.nextLine());
+                    String s = scanner.nextLine();
+                    if ("".equals(s)) {
+                        continue;
+                    }
+                    val.delete(0, val.length()).append(s);
                     if (val.length() != 2 && (!Character.isDigit(val.charAt(0)) || !Character.isDigit(val.charAt(1)))) {
                         System.out.println("Вы неправильно ввели номер ячейки. Попробуйте еще раз.");
                         continue;
@@ -72,7 +76,7 @@ public class Main {
                i = Integer.parseInt(String.valueOf(val.charAt(0)));
                j = Integer.parseInt(String.valueOf(val.charAt(1)));
 
-               if (computerMap[i][j] == Cell.ALIVE_SHIP.getValue()) {
+               if (computerMap[i][j] == Cell.ALIVE_SHIP.getValue() || computerMap[i][j] == Cell.DEAD_SHIP.getValue()) {
                    userShoots[i][j] = Cell.DEAD_SHIP.getValue();
                    computerMap[i][j] = Cell.DEAD_SHIP.getValue();
                    System.out.println("Попадание!");
@@ -92,7 +96,7 @@ public class Main {
                 i = random.nextInt(0, 10);
                 j = random.nextInt(0, 10);
 
-                System.out.print(String.format("Компьютер стреляет в ячейку %d %d ............", i + 1, j + 1));
+                System.out.print(String.format("Компьютер стреляет в ячейку %d %d ............", i, j));
 
                 if (userMap[i][j] == Cell.ALIVE_SHIP.getValue()) {
                     computerShoots[i][j] = Cell.DEAD_SHIP.getValue();
