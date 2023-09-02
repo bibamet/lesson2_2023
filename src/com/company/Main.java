@@ -98,7 +98,7 @@ public class Main {
 
                 System.out.print(String.format("Компьютер стреляет в ячейку %d %d ............", i, j));
 
-                if (userMap[i][j] == Cell.ALIVE_SHIP.getValue()) {
+                if (userMap[i][j] == Cell.ALIVE_SHIP.getValue() || userMap[i][j] == Cell.DEAD_SHIP.getValue()) {
                     computerShoots[i][j] = Cell.DEAD_SHIP.getValue();
                     userMap[i][j] = Cell.DEAD_SHIP.getValue();
                     System.out.println(" и попадает!");
