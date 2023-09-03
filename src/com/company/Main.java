@@ -9,7 +9,6 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random(10);
 
-
     public static void main(String[] args) {
 
         System.out.println("Введите размер игрового поля в формете NxN...");
@@ -128,7 +127,6 @@ public class Main {
         }
         return false;
     }
-
 
     private static void printMap(char[][] map, int rows, int columns) {
         System.out.print("  ");
