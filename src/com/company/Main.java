@@ -7,7 +7,7 @@ public class Main {
 
     static Players curPlayer = null;
     static Scanner scanner = new Scanner(System.in);
-    static Random random = new Random(10);
+    static Random random = new Random(1010);
 
     public static void main(String[] args) {
 
@@ -30,7 +30,7 @@ public class Main {
 
         fill(userMap);
         fill(computerMap);
-
+        
         char[][] userShoots = new char[rows][columns];
         char[][] computerShoots = new char[rows][columns];
 
